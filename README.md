@@ -1,7 +1,7 @@
-<h1 align="center">messages-tmp-cleaner</h1>
+<h1 align="center">Ballast</h1>
 
 <p align="center">
-  <strong>Reclaim the disk space macOS Messages quietly leaves behind.</strong>
+  <strong>Drop the dead weight macOS Messages quietly stows in your hold.</strong>
 </p>
 
 <p align="center">
@@ -12,7 +12,9 @@
 
 Messages copies every attachment you send or receive into a staging folder
 inside its app container, and never cleans it up. Over years that folder grows
-to tens of gigabytes. This is a single shell script that clears it safely.
+to tens of gigabytes of cargo you never agreed to carry. Ballast is a single
+shell script that throws it overboard — safely, and without touching a single
+real attachment.
 
 > [!NOTE]
 > **Most of that folder is not what it looks like.** Read
@@ -21,9 +23,9 @@ to tens of gigabytes. This is a single shell script that clears it safely.
 > than the space you can actually reclaim, and that's not a bug.
 
 <p align="center">
-  <a href="https://ko-fi.com/itsab1989"><img src="https://ko-fi.com/img/githubbutton_sm.svg" alt="Support this project on Ko-fi" height="36"></a>
+  <a href="https://ko-fi.com/itsab1989"><img src="https://ko-fi.com/img/githubbutton_sm.svg" alt="Support Ballast on Ko-fi" height="36"></a>
   <br>
-  <sub>This script is free and always will be. If it bought you back some disk space, a coffee is a kind way to say thanks — completely optional.</sub>
+  <sub>Ballast is free and always will be. If it bought you back some disk space, a coffee is a kind way to say thanks — completely optional.</sub>
 </p>
 
 ---
@@ -31,15 +33,15 @@ to tens of gigabytes. This is a single shell script that clears it safely.
 ## Usage
 
 ```bash
-git clone https://github.com/itsab1989/messages-tmp-cleaner.git
-cd messages-tmp-cleaner
-chmod +x clear-messages-tmp.sh
+git clone https://github.com/itsab1989/Ballast.git
+cd Ballast
+chmod +x ballast.sh
 
-./clear-messages-tmp.sh           # dry run — lists the 10 largest files, deletes nothing
-./clear-messages-tmp.sh --apply   # actually delete
+./ballast.sh           # dry run — lists the 10 largest files, deletes nothing
+./ballast.sh --apply   # actually delete
 ```
 
-Quit Messages first. The script refuses to run while it's open.
+Quit Messages first. Ballast refuses to run while it's open.
 
 ## What it touches
 
@@ -50,7 +52,7 @@ It deletes the **contents** of exactly one folder:
 ```
 
 That is a temporary staging area. It is **not** where your attachments live —
-those are in `~/Library/Messages/Attachments`, which this script never deletes
+those are in `~/Library/Messages/Attachments`, which Ballast never deletes
 from. It only reads that folder, to count your attachments afterwards and show
 you they're still there.
 
@@ -76,13 +78,13 @@ That splits the staged files into two kinds:
 Deleting is safe in both cases. Removing a clone never affects the file it was
 cloned from. The orphans are where your space actually comes back.
 
-On the machine this was written for, a folder reporting 59 GB gave back roughly
-46 GB — the rest were clones of attachments still in Messages. Expect the same
-shape of result: a real win, but not the headline number.
+On the machine Ballast was written for, a folder reporting 59 GB gave back
+roughly 46 GB — the rest were clones of attachments still in Messages. Expect
+the same shape of result: a real win, but not the headline number.
 
 One wrinkle worth knowing: orphans are usually staged **twice** (once under
 `Media/`, once under `LinkedFiles/`) as clones of each other. Deleting only one
-of the pair frees nothing, because the other still holds the blocks. The script
+of the pair frees nothing, because the other still holds the blocks. Ballast
 clears the whole folder, so this takes care of itself — but it's why deleting a
 single file by hand can look like it did nothing.
 
@@ -102,9 +104,9 @@ you like.
 
 ## Will Messages recreate this?
 
-Yes. This is a cleanup, not a fix — the staging folder starts filling again the
-next time you send or receive an attachment. Running it once or twice a year is
-plenty.
+Yes. Ballast is a cleanup, not a fix — the staging folder starts filling again
+the next time you send or receive an attachment. Running it once or twice a
+year is plenty.
 
 If your disk is filling steadily, this is worth doing once, but check your
 photo and video libraries too. Those are usually the real story; this folder is

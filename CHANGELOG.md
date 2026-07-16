@@ -4,6 +4,8 @@
 
 First release.
 
+Ballast throws overboard the dead weight macOS Messages stows in your hold.
+
 - Clears the macOS Messages attachment staging folder
   (`~/Library/Containers/com.apple.MobileSMS/Data/tmp/TemporaryItems`), which
   Messages fills with a copy of every attachment you send or receive and never

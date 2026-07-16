@@ -1,6 +1,8 @@
 #!/bin/bash
 #
-# clear-messages-tmp.sh — reclaim disk space from the Messages staging folder.
+# Ballast — drop the dead weight macOS Messages stows in your hold.
+#
+# https://github.com/itsab1989/Ballast
 #
 # Messages copies every attachment you send or receive into a temporary staging
 # folder and never cleans it up. Most of those copies are APFS clones that share
@@ -12,8 +14,8 @@
 # ~/Library/Messages/Attachments, where the real attachments live.
 #
 # Usage:
-#   ./clear-messages-tmp.sh          # dry run — shows what would go, deletes nothing
-#   ./clear-messages-tmp.sh --apply  # actually delete
+#   ./ballast.sh          # dry run — shows what would go, deletes nothing
+#   ./ballast.sh --apply  # actually delete
 #
 set -euo pipefail
 
