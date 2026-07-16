@@ -78,9 +78,14 @@ That splits the staged files into two kinds:
 Deleting is safe in both cases. Removing a clone never affects the file it was
 cloned from. The orphans are where your space actually comes back.
 
-On the machine Ballast was written for, a folder reporting 59 GB gave back
-roughly 46 GB — the rest were clones of attachments still in Messages. Expect
-the same shape of result: a real win, but not the headline number.
+Measured on the machine Ballast was written for: a staging folder reporting
+**59 GB gave back 27 GB** — under half. The rest were clones of attachments
+still sitting in Messages, and their blocks stayed exactly where they were.
+
+Expect that shape of result. There is no way to know the real figure in
+advance, because nothing on macOS will tell you which staged files are clones
+and which are orphans without deleting them and watching the free-space number
+move. Treat the folder size as an upper bound and anything you get as a bonus.
 
 One wrinkle worth knowing: orphans are usually staged **twice** (once under
 `Media/`, once under `LinkedFiles/`) as clones of each other. Deleting only one
